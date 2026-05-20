@@ -51,7 +51,7 @@ print(car_2.model)
 print(car_1.color)
 print(car_2.color)'''
 
-class Book:
+'''class Book:
     def __init__(self, title, pages):
         self.title = title
         self.pages = pages
@@ -72,4 +72,54 @@ print(len(book1))
 print(len(book2))
 print(str(book1))
 print(str(book2))
-print(book1 == book2)
+print(book1 == book2)'''
+
+class Cart:
+    def __init__(self):
+        self.items = []
+        
+    def add(self, item):
+        self.items.append(item)
+        
+    def remove(self, item):
+        if item in self.items:
+            self.items.remove(item)
+        else:
+            print(f'{item} is not in cart')
+            
+    def list_items(self):
+        return self.items
+    
+    def __len__(self):
+        return len(self.items)
+    
+    def __getitem__(self, index):
+        return self.items[index]
+    
+    def __contains__(self, item):
+        return item in self.items
+    
+    def __iter__(self):
+        return iter(self.items)
+    
+
+cart = Cart()
+cart.add('Laptop')
+cart.add('Wireless mouse')
+cart.add('Ergo keyboard')
+cart.add('Monitor')
+
+for item in cart:
+    print(item, end=' ')
+    
+print(len(cart))
+print(cart[3])
+
+print('Monitor' in cart)
+print('banana' in cart)
+
+cart.remove('Ergo keyboard')
+
+print(cart.list_items())
+
+cart.remove('banana')

@@ -74,7 +74,7 @@ print(str(book1))
 print(str(book2))
 print(book1 == book2)'''
 
-class Cart:
+'''class Cart:
     def __init__(self):
         self.items = []
         
@@ -122,4 +122,38 @@ cart.remove('Ergo keyboard')
 
 print(cart.list_items())
 
-cart.remove('banana')
+cart.remove('banana')'''
+
+#Manejo de atributos de objetos dinamicos
+
+'''class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        
+my_car = Car('Lamborghini', 'Gallardo')
+#print(my_car.brand)
+#print(my_car.model)
+
+#getattr
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+person = Person('John Doe', 30)
+
+print(getattr(person, 'name'))
+print(getattr(person, 'age'))
+print(getattr(person, 'city', 'Milano'))'''
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+person = Person('John doe', 30)
+
+attr_name = input('Enter the attribute you want to see: ?')
+print(getattr(person, attr_name, 'Attribute not found'))

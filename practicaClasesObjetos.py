@@ -12,7 +12,7 @@ class Dog:
 #Creacion de Objetos
 
 dog1 = Dog('Jack', 3)
-dog2 = dog('Thatcher', 5)
+dog2 = Dog('Thatcher', 5)
 
 #LLamar metodos en objetos
 

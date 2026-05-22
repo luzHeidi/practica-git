@@ -148,7 +148,7 @@ print(getattr(person, 'name'))
 print(getattr(person, 'age'))
 print(getattr(person, 'city', 'Milano'))'''
 
-class Person:
+'''class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -157,3 +157,100 @@ person = Person('John doe', 30)
 
 attr_name = input('Enter the attribute you want to see: ?')
 print(getattr(person, attr_name, 'Attribute not found'))
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person = Person('John Doe', 30)
+
+for attr in dir(person):
+    if not attr.startswith('__') and not callable(getattr(person, attr)):
+        value = getattr(person, attr)
+        print(f'{attr}: {value}')
+        
+
+class configuration:
+    pass
+
+settings_data = {
+    'server_url': 'https://api.example.com',
+    'timeout_sec': 30,
+    'max_retries': 5
+}
+
+config_obj = configuration()
+
+for attr_name, attr_value in settings_data.items():
+    setattr(config_obj, attr_name, attr_value)
+    
+print(config_obj.server_url)
+print(config_obj.timeout_sec)
+
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+product_a = Product('T-Shirt', 25)
+
+required_attributes = ['name', 'price', 'inventory_id']
+
+for attr in required_attributes:
+    if not hasattr(product_a, attr):
+        print(f"ERROR: Product is missing the required attribute:' {attr}'")
+    else:
+        print(f'{attr}: {getattr(product_a, attr)}')'''
+        
+        
+class UserSession:
+    def __init__(self, user_id, token):
+        self.user_id = user_id
+        self.token = token
+        self.temp_counter = 0
+
+# este es una instancia cuando se manda a llamar una clase y se le assignan valores        
+session = UserSession(101, 'a1b2c3d4e5')
+
+attributes_to_clean = ['auth_token', 'temp_counter']
+
+for attr in attributes_to_clean:
+    if hasattr(session, attr):
+        delattr(session, attr)
+        print(f'Removed attribute: {attr}')
+        
+print('\nFinal attributes remaining:')
+
+for attr in dir(session):
+    
+    if not attr.startswith('__') and not callable(getattr(session, attr)):
+        print(f' - {attr}: {getattr(session, attr)}')
+        
+        
+#ejercicio class email        
+email_obj = Email('alice@example.com', 'bob@example.com', 'Hello', 'Hi Bob!')
+print(email_obj.sender)
+print(email_obj.subject)
+print(email_obj.read)
+email_obj.mark_as_read()
+print(email_obj.read)    
+        
+        
+        
+        
+        
+        
+        
+class Planet:
+    def __init__(self, name, planet_type, star):
+
+        if not isinstance(name, str) or not isinstance(planet_type, str) or not isinstance(star, str):
+            raise TypeError('name, planet type, and star must be strings')
+
+        if name == '' or planet_type == '' or star == '':
+            raise ValueError('name, planet_type, and star must be non-empty strings')
+        
+        
+current_time = datetime.datetime.now()
+print(current_time.strftime('%H:%M:%S'))
